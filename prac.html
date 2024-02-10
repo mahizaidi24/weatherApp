@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap');
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0%;
+    font-family: 'Lexend Deca', sans-serif;
+}
+body{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(90deg, rgba(30,152,157,1) 10%, rgba(7,54,99,1) 100%);
+}
+.card {
+    width: 500px;
+    height: 500px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(0deg, rgba(195,255,242,1) 0%, rgba(56,203,255,1) 100%);
+    background-blend-mode: normal, normal, screen, overlay, normal;
+    box-shadow: 0px 0px 10px 1px #000000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+}
+        .searchBox{
+            padding: 20px;
+            height: 50px;
+            outline: 0px;
+            border: 0px;
+            border-radius: 20px;
+        }
+           
+        .search{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <div class="search">
+            <input type="text" class="searchBox" placeholder="Enter your city name">
+            <button class="searchbtn"><img src="./search_3031293.png" alt="" height="20px" width="20px"></button>
+        </div>
+
+        <div class="ingrad">
+            <img class="dishicon" src="" alt="" width="100px" height="100px">
+            <h1 class="city">Monopoly</h1>
+        </div>
+        <div class="details">
+            <div class="col">
+                <img src="" alt="" height="50px" width="50px">
+                <p class="ingradiants">pepper</p>
+                <p>Ingradiants</p>
+            </div>
+
+            <div class="col">
+                <img src="" alt="" height="50px" width="50px">
+                <p class=""></p>
+                <p></p>
+            </div>
+        </div>
+    </div>
+
+    </div>
+    <script>
+        
+        let Apiurl="www.themealdb.com/api/json/v1/1/search.php?s&units=metric&q="
+        let searchBox=document.querySelector(".searchBox")
+
+        async function checkDish(){
+            let responce = await fetch(Apiurl + city )
+            let data = await responce.json();
+            console.log(data);
+            document.querySelector('.city').innerText=data.name;
+            document.querySelector('.ingradiants').innerText=data.strMeal;
+
+        }
+
+        document.querySelector(".searchbtn").addEventListener('click',()=>{
+            checkWeather(searchBox.value)
+        })
+
+
+
+
+    </script>
+</body>
+</html>
